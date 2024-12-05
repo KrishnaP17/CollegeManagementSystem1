@@ -1,0 +1,1 @@
+You have to connect to the Microsoft SQL Server file I attached (CollegeManagementSystem.sql) for linking the database. I am not entirely sure if it will work on your end because in the code files, the server connection name is mine. However, all the code files are uploaded here. 
