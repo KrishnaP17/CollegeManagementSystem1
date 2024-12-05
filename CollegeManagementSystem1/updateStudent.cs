@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -43,68 +44,6 @@ namespace CollegeManagementSystem1
 
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            String studentID = txtStudentID.Text;
-
-
-            string connectionString = "data source = KRISHNA\\SQLEXPRESS; database = college; Integrated Security = True";
-
-            //@StudentID is just a placeholder like: "Select count(*) from NewAdmission where studentID = "1234";
-            string query = "SELECT COUNT(*) FROM NewAdmission WHERE StudentID = @StudentID";
-
-
-            /*ensures that once the code inside the using block completes, the connection will
-              automatically close and release any resources, even if an error occurs.
-              This helps manage resources efficiently. */
-            using (SqlConnection con = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, con))
-            {
-
-                //AddWithValue basically replaces @StudentID with the actual StudentID
-                cmd.Parameters.AddWithValue("@StudentID", studentID);
-                con.Open();
-
-                /* .ExecuteScalar() is a method that executes the SQL command and returns the value of the first column in the
-                 first row of the result set. It’s commonly used when you’re only expecting a 
-                single value, such as a count or an aggregate result */
-
-                //it executes the query: "select count(*) from NewAdmission where ..." and the query matches the studentID with the database
-                int studentExists = (int)cmd.ExecuteScalar();
-
-                if (studentExists > 0)
-                {
-                    //execute the function that takes place which updates the info
-
-                    panel1.Controls.Clear();
-
-                    USPanel2.Visible = true;
-
-                    if (!panel1.Controls.Contains(USPanel2))
-                    {
-                        panel1.Controls.Add(USPanel2);
-                    }
-
-                   
-
-                }
-
-                else if (String.IsNullOrEmpty(studentID))
-                {
-                    MessageBox.Show("Please enter a valid Student ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                else
-                {
-                    MessageBox.Show("Student ID not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-
-
-
-            }
-
-        }
 
         private void label1_Click_1(object sender, EventArgs e)
         {
@@ -117,6 +56,128 @@ namespace CollegeManagementSystem1
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+            if (txtStudentID.Text != "")
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = "data source = KRISHNA\\SQLEXPRESS; database = college; integrated security = True";
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+
+                cmd.CommandText = "select studentID from NewAdmission where studentID = @studentID";
+                cmd.Parameters.AddWithValue("@studentID", txtStudentID.Text);
+
+                SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                DataSet DS = new DataSet();
+                DA.Fill(DS);
+
+
+
+
+                if (DS.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("Please enter a valid student ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    panel1.Controls.Clear();
+
+                    USPanel2.Visible = true;
+
+                   // newAddy.Visible = false;
+
+
+                    if (!panel1.Controls.Contains(USPanel2))
+                    {
+                        panel1.Controls.Add(USPanel2);
+                    }
+
+                    cmd.CommandText = "select mobile, email, schoolName, addres from NewAdmission where studentID = " + txtStudentID.Text + "";
+
+                    SqlDataAdapter DA1 = new SqlDataAdapter(cmd);
+                    DataSet DS1 = new DataSet();
+
+                    DA1.Fill(DS1);
+
+                    CurPhone.Text = DS1.Tables[0].Rows[0][0].ToString();
+                    CurEmail.Text = DS1.Tables[0].Rows[0][1].ToString();
+                    CurSchool.Text = DS1.Tables[0].Rows[0][2].ToString();
+                    CurAddy.Text = DS1.Tables[0].Rows[0][3].ToString();
+
+
+                }
+
+            }
+        }
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "data source = KRISHNA\\SQLEXPRESS; database = college; integrated security = True";
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+
+            if(comboBox1.SelectedIndex == 0)
+            {
+                cmd.CommandText = "Update NewAdmission set [mobile] = " + textBox1.Text + " where studentID = " + txtStudentID.Text + " ";
+                MessageBox.Show("Student information updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                CurPhone.Text = textBox1.Text;
+
+                comboBox1.ResetText();
+                textBox1.Clear();
+            }
+            else if (comboBox1.SelectedIndex == 1)
+            {
+                cmd.CommandText = "Update NewAdmission set [email] = '" + textBox1.Text + "' where studentID = " + txtStudentID.Text + " ";
+                MessageBox.Show("Student information updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                CurEmail.Text = textBox1.Text;
+
+                comboBox1.ResetText();
+                textBox1.Clear();
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                cmd.CommandText = "Update NewAdmission set [schoolName] = '" + textBox1.Text + "' where studentID = " + txtStudentID.Text + "";
+                MessageBox.Show("Student information updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                CurSchool.Text = textBox1.Text;
+
+                comboBox1.ResetText();
+                textBox1.Clear();
+            }
+            else if (comboBox1.SelectedIndex == 3) 
+            {
+
+                cmd.CommandText = "Update NewAdmission set [addres] = '" + textBox1.Text + "' where studentID = " + txtStudentID.Text + "";
+                MessageBox.Show("Student information updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                CurAddy.Text = textBox1.Text;
+
+                comboBox1.ResetText();
+                textBox1.Clear();
+
+            }
+
+
+            SqlDataAdapter DA = new SqlDataAdapter(cmd);
+            DataSet DS = new DataSet();
+            DA.Fill(DS);
+
+        }
+
+        private void USPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
         {
 
         }

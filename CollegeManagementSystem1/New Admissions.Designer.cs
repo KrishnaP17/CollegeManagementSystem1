@@ -56,6 +56,8 @@
             studentID = new Label();
             richTxtAddress = new RichTextBox();
             comboBoxDuration = new ComboBox();
+            subjects = new Label();
+            subjectList = new CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -77,7 +79,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 13F, FontStyle.Bold);
             label2.ForeColor = Color.Olive;
-            label2.Location = new Point(126, 455);
+            label2.Location = new Point(126, 460);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.Size = new Size(81, 30);
@@ -187,7 +189,7 @@
             // btnReset
             // 
             btnReset.BackColor = Color.PaleGoldenrod;
-            btnReset.Location = new Point(600, 569);
+            btnReset.Location = new Point(628, 705);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(157, 39);
             btnReset.TabIndex = 11;
@@ -198,7 +200,7 @@
             // btnSave
             // 
             btnSave.BackColor = Color.PaleGoldenrod;
-            btnSave.Location = new Point(345, 569);
+            btnSave.Location = new Point(373, 705);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(157, 39);
             btnSave.TabIndex = 12;
@@ -352,12 +354,36 @@
             comboBoxDuration.TabIndex = 28;
             comboBoxDuration.Text = "--Select--";
             // 
+            // subjects
+            // 
+            subjects.AutoSize = true;
+            subjects.Font = new Font("Times New Roman", 13F, FontStyle.Bold);
+            subjects.ForeColor = Color.Olive;
+            subjects.Location = new Point(126, 550);
+            subjects.Margin = new Padding(5, 0, 5, 0);
+            subjects.Name = "subjects";
+            subjects.Size = new Size(126, 30);
+            subjects.TabIndex = 29;
+            subjects.Text = "Subject(s)";
+            // 
+            // subjectList
+            // 
+            subjectList.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            subjectList.FormattingEnabled = true;
+            subjectList.Items.AddRange(new object[] { "ITSC 1212", "ITSC 1213", "ITSC 1600", "ITSC 2175", "ITSC 2214", "ITSC 2181", "ITSC 3146", "ITSC 3155", "MATH 1241", "MATH 1242", "MATH 2164", "MATH 2122", "ITIS 3135", "ITIS 3310", "ITIs 3200", "ITIS 4221", "ITCS 3160", "ITCS 3112" });
+            subjectList.Location = new Point(282, 549);
+            subjectList.Name = "subjectList";
+            subjectList.Size = new Size(220, 112);
+            subjectList.TabIndex = 45;
+            // 
             // New_Admissions
             // 
             AutoScaleDimensions = new SizeF(17F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
-            ClientSize = new Size(1188, 653);
+            ClientSize = new Size(1188, 794);
+            Controls.Add(subjectList);
+            Controls.Add(subjects);
             Controls.Add(comboBoxDuration);
             Controls.Add(richTxtAddress);
             Controls.Add(studentID);
@@ -388,7 +414,7 @@
             Font = new Font("Times New Roman", 14F, FontStyle.Bold);
             ForeColor = Color.Olive;
             Margin = new Padding(5, 4, 5, 4);
-            MaximumSize = new Size(1210, 709);
+            MaximumSize = new Size(1210, 850);
             Name = "New_Admissions";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "New_Admissions";
@@ -427,5 +453,7 @@
         private Label studentID;
         private RichTextBox richTxtAddress;
         private ComboBox comboBoxDuration;
+        private Label subjects;
+        private CheckedListBox subjectList;
     }
 }

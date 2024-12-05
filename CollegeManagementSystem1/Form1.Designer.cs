@@ -54,7 +54,7 @@
             addTeacherToolStripMenuItem = new ToolStripMenuItem();
             searchTeacherToolStripMenuItem = new ToolStripMenuItem();
             updateTeacherInfoToolStripMenuItem = new ToolStripMenuItem();
-            aboutUsToolStripMenuItem = new ToolStripMenuItem();
+            removeTeacherToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
             loginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -208,7 +208,7 @@
             // 
             menuStrip1.BackColor = Color.LightGoldenrodYellow;
             menuStrip1.ImageScalingSize = new Size(44, 44);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { admissionToolStripMenuItem, feeToolStripMenuItem, studentToolStripMenuItem, teacherToolStripMenuItem, aboutUsToolStripMenuItem, logoutToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { admissionToolStripMenuItem, feeToolStripMenuItem, studentToolStripMenuItem, teacherToolStripMenuItem, logoutToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(4);
@@ -260,6 +260,7 @@
             updateFeeToolStripMenuItem.Name = "updateFeeToolStripMenuItem";
             updateFeeToolStripMenuItem.Size = new Size(231, 34);
             updateFeeToolStripMenuItem.Text = "Update Fee";
+            updateFeeToolStripMenuItem.Click += updateFeeToolStripMenuItem_Click;
             // 
             // studentToolStripMenuItem
             // 
@@ -283,6 +284,7 @@
             searchStudentToolStripMenuItem.Name = "searchStudentToolStripMenuItem";
             searchStudentToolStripMenuItem.Size = new Size(320, 34);
             searchStudentToolStripMenuItem.Text = "Search Student";
+            searchStudentToolStripMenuItem.Click += searchStudentToolStripMenuItem_Click;
             // 
             // updateStudentInfoToolStripMenuItem
             // 
@@ -302,11 +304,12 @@
             removeStudentToolStripMenuItem.Name = "removeStudentToolStripMenuItem";
             removeStudentToolStripMenuItem.Size = new Size(320, 34);
             removeStudentToolStripMenuItem.Text = "Remove Student";
+            removeStudentToolStripMenuItem.Click += removeStudentToolStripMenuItem_Click;
             // 
             // teacherToolStripMenuItem
             // 
             teacherToolStripMenuItem.BackColor = Color.LightGoldenrodYellow;
-            teacherToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addTeacherToolStripMenuItem, searchTeacherToolStripMenuItem, updateTeacherInfoToolStripMenuItem });
+            teacherToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addTeacherToolStripMenuItem, searchTeacherToolStripMenuItem, updateTeacherInfoToolStripMenuItem, removeTeacherToolStripMenuItem });
             teacherToolStripMenuItem.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
             teacherToolStripMenuItem.ForeColor = Color.Olive;
             teacherToolStripMenuItem.Image = (Image)resources.GetObject("teacherToolStripMenuItem.Image");
@@ -325,6 +328,7 @@
             addTeacherToolStripMenuItem.Name = "addTeacherToolStripMenuItem";
             addTeacherToolStripMenuItem.Size = new Size(323, 34);
             addTeacherToolStripMenuItem.Text = "Add Teacher";
+            addTeacherToolStripMenuItem.Click += addTeacherToolStripMenuItem_Click;
             // 
             // searchTeacherToolStripMenuItem
             // 
@@ -334,6 +338,7 @@
             searchTeacherToolStripMenuItem.Name = "searchTeacherToolStripMenuItem";
             searchTeacherToolStripMenuItem.Size = new Size(323, 34);
             searchTeacherToolStripMenuItem.Text = "Search Teacher";
+            searchTeacherToolStripMenuItem.Click += searchTeacherToolStripMenuItem_Click;
             // 
             // updateTeacherInfoToolStripMenuItem
             // 
@@ -343,18 +348,16 @@
             updateTeacherInfoToolStripMenuItem.Name = "updateTeacherInfoToolStripMenuItem";
             updateTeacherInfoToolStripMenuItem.Size = new Size(323, 34);
             updateTeacherInfoToolStripMenuItem.Text = "Update Teacher Info";
+            updateTeacherInfoToolStripMenuItem.Click += updateTeacherInfoToolStripMenuItem_Click;
             // 
-            // aboutUsToolStripMenuItem
+            // removeTeacherToolStripMenuItem
             // 
-            aboutUsToolStripMenuItem.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
-            aboutUsToolStripMenuItem.ForeColor = Color.Olive;
-            aboutUsToolStripMenuItem.Image = (Image)resources.GetObject("aboutUsToolStripMenuItem.Image");
-            aboutUsToolStripMenuItem.ImageTransparentColor = Color.White;
-            aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
-            aboutUsToolStripMenuItem.Padding = new Padding(8);
-            aboutUsToolStripMenuItem.Size = new Size(127, 90);
-            aboutUsToolStripMenuItem.Text = "About Us";
-            aboutUsToolStripMenuItem.TextImageRelation = TextImageRelation.TextAboveImage;
+            removeTeacherToolStripMenuItem.BackColor = Color.LemonChiffon;
+            removeTeacherToolStripMenuItem.ForeColor = Color.Olive;
+            removeTeacherToolStripMenuItem.Name = "removeTeacherToolStripMenuItem";
+            removeTeacherToolStripMenuItem.Size = new Size(323, 34);
+            removeTeacherToolStripMenuItem.Text = "Remove Teacher";
+            removeTeacherToolStripMenuItem.Click += removeTeacherToolStripMenuItem_Click;
             // 
             // logoutToolStripMenuItem
             // 
@@ -368,6 +371,7 @@
             logoutToolStripMenuItem.Text = "Logout ";
             logoutToolStripMenuItem.TextDirection = ToolStripTextDirection.Horizontal;
             logoutToolStripMenuItem.TextImageRelation = TextImageRelation.TextAboveImage;
+            logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -425,7 +429,7 @@
         private ToolStripMenuItem addTeacherToolStripMenuItem;
         private ToolStripMenuItem searchTeacherToolStripMenuItem;
         private ToolStripMenuItem updateTeacherInfoToolStripMenuItem;
-        private ToolStripMenuItem aboutUsToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem;
+        private ToolStripMenuItem removeTeacherToolStripMenuItem;
     }
 }

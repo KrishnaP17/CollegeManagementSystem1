@@ -1,6 +1,6 @@
 ﻿namespace CollegeManagementSystem1
 {
-    partial class updateStudent
+    partial class UpdateTeacher
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(updateStudent));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateTeacher));
             label11 = new Label();
+            pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            USPanel2 = new Panel();
+            UTPanel2 = new Panel();
+            currSubjects = new Label();
+            label7 = new Label();
             panel2 = new Panel();
+            alert4 = new Label();
+            tsubjectList = new CheckedListBox();
             label13 = new Label();
             updateBtn = new Button();
+            otherOptionTxt = new TextBox();
             comboBox1 = new ComboBox();
             label12 = new Label();
             CurAddy = new Label();
@@ -48,15 +54,13 @@
             label2 = new Label();
             label1 = new Label();
             btnSaveUS = new Button();
-            pictureBox1 = new PictureBox();
-            txtStudentID = new TextBox();
-            enterStudetID = new Label();
             pictureBox2 = new PictureBox();
-            textBox1 = new TextBox();
-            panel1.SuspendLayout();
-            USPanel2.SuspendLayout();
-            panel2.SuspendLayout();
+            txtTeacherID = new TextBox();
+            enterStudetID = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            UTPanel2.SuspendLayout();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -65,63 +69,117 @@
             label11.AutoSize = true;
             label11.Font = new Font("Lucida Calligraphy", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = Color.Olive;
-            label11.Location = new Point(146, 20);
+            label11.Location = new Point(159, 24);
             label11.Margin = new Padding(5, 0, 5, 0);
             label11.Name = "label11";
-            label11.Size = new Size(850, 67);
-            label11.TabIndex = 22;
-            label11.Text = "Update Student Information";
+            label11.Size = new Size(856, 67);
+            label11.TabIndex = 23;
+            label11.Text = "Update Teacher Information";
             label11.Click += label11_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(127, 103);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 34;
+            pictureBox1.TabStop = false;
             // 
             // panel1
             // 
             panel1.BackColor = Color.Khaki;
-            panel1.Controls.Add(USPanel2);
+            panel1.Controls.Add(UTPanel2);
             panel1.Controls.Add(btnSaveUS);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(txtStudentID);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(txtTeacherID);
             panel1.Controls.Add(enterStudetID);
-            panel1.Location = new Point(43, 135);
+            panel1.Location = new Point(46, 144);
             panel1.MaximumSize = new Size(1038, 713);
             panel1.Name = "panel1";
             panel1.Size = new Size(1038, 713);
-            panel1.TabIndex = 23;
-            panel1.Paint += panel1_Paint;
+            panel1.TabIndex = 34;
             // 
-            // USPanel2
+            // UTPanel2
             // 
-            USPanel2.BackColor = Color.Khaki;
-            USPanel2.Controls.Add(panel2);
-            USPanel2.Controls.Add(label12);
-            USPanel2.Controls.Add(CurAddy);
-            USPanel2.Controls.Add(CurSchool);
-            USPanel2.Controls.Add(CurEmail);
-            USPanel2.Controls.Add(CurPhone);
-            USPanel2.Controls.Add(label10);
-            USPanel2.Controls.Add(label5);
-            USPanel2.Controls.Add(label4);
-            USPanel2.Controls.Add(label3);
-            USPanel2.Controls.Add(label2);
-            USPanel2.Controls.Add(label1);
-            USPanel2.Location = new Point(0, 2);
-            USPanel2.MaximumSize = new Size(1038, 708);
-            USPanel2.Name = "USPanel2";
-            USPanel2.Size = new Size(1038, 708);
-            USPanel2.TabIndex = 24;
-            USPanel2.Paint += USPanel2_Paint;
+            UTPanel2.BackColor = Color.Khaki;
+            UTPanel2.Controls.Add(currSubjects);
+            UTPanel2.Controls.Add(label7);
+            UTPanel2.Controls.Add(panel2);
+            UTPanel2.Controls.Add(label12);
+            UTPanel2.Controls.Add(CurAddy);
+            UTPanel2.Controls.Add(CurSchool);
+            UTPanel2.Controls.Add(CurEmail);
+            UTPanel2.Controls.Add(CurPhone);
+            UTPanel2.Controls.Add(label10);
+            UTPanel2.Controls.Add(label5);
+            UTPanel2.Controls.Add(label4);
+            UTPanel2.Controls.Add(label3);
+            UTPanel2.Controls.Add(label2);
+            UTPanel2.Controls.Add(label1);
+            UTPanel2.Location = new Point(3, 2);
+            UTPanel2.MaximumSize = new Size(1038, 708);
+            UTPanel2.Name = "UTPanel2";
+            UTPanel2.Size = new Size(1038, 708);
+            UTPanel2.TabIndex = 35;
+            // 
+            // currSubjects
+            // 
+            currSubjects.AutoSize = true;
+            currSubjects.Font = new Font("Times New Roman", 12F);
+            currSubjects.Location = new Point(273, 568);
+            currSubjects.Name = "currSubjects";
+            currSubjects.Size = new Size(252, 27);
+            currSubjects.TabIndex = 32;
+            currSubjects.Text = "____________________";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
+            label7.ForeColor = Color.Olive;
+            label7.Location = new Point(21, 568);
+            label7.Name = "label7";
+            label7.Size = new Size(188, 26);
+            label7.TabIndex = 31;
+            label7.Text = "Current Subjects";
             // 
             // panel2
             // 
             panel2.BackColor = Color.PaleGoldenrod;
             panel2.BorderStyle = BorderStyle.Fixed3D;
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(alert4);
+            panel2.Controls.Add(tsubjectList);
             panel2.Controls.Add(label13);
             panel2.Controls.Add(updateBtn);
+            panel2.Controls.Add(otherOptionTxt);
             panel2.Controls.Add(comboBox1);
             panel2.Location = new Point(543, 96);
             panel2.Name = "panel2";
             panel2.Size = new Size(474, 455);
             panel2.TabIndex = 30;
+            // 
+            // alert4
+            // 
+            alert4.AutoSize = true;
+            alert4.BackColor = Color.PaleGoldenrod;
+            alert4.Font = new Font("Times New Roman", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            alert4.ForeColor = Color.Olive;
+            alert4.Location = new Point(12, 201);
+            alert4.Name = "alert4";
+            alert4.Size = new Size(449, 25);
+            alert4.TabIndex = 33;
+            alert4.Text = "Please select all of the courses teacher will teach.";
+            // 
+            // tsubjectList
+            // 
+            tsubjectList.FormattingEnabled = true;
+            tsubjectList.Items.AddRange(new object[] { "ITSC 1212", "ITSC 1213", "ITSC 1600", "ITSC 2175", "ITSC 2214", "ITSC 2181", "ITSC 3146", "ITSC 3155", "MATH 1241", "MATH 1242", "MATH 2164", "MATH 2122", "ITIS 3135", "ITIS 3310", "ITIs 3200", "ITIS 4221", "ITCS 3160", "ITCS 3112" });
+            tsubjectList.Location = new Point(133, 238);
+            tsubjectList.Name = "tsubjectList";
+            tsubjectList.Size = new Size(220, 116);
+            tsubjectList.TabIndex = 46;
             // 
             // label13
             // 
@@ -133,14 +191,13 @@
             label13.Size = new Size(453, 32);
             label13.TabIndex = 28;
             label13.Text = "CHOOSE INFO TO BE CHANGED";
-            label13.Click += label13_Click;
             // 
             // updateBtn
             // 
             updateBtn.BackColor = Color.LemonChiffon;
             updateBtn.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             updateBtn.ForeColor = Color.Olive;
-            updateBtn.Location = new Point(167, 366);
+            updateBtn.Location = new Point(167, 383);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(141, 50);
             updateBtn.TabIndex = 24;
@@ -148,20 +205,30 @@
             updateBtn.UseVisualStyleBackColor = false;
             updateBtn.Click += updateBtn_Click;
             // 
+            // otherOptionTxt
+            // 
+            otherOptionTxt.Font = new Font("Times New Roman", 9F);
+            otherOptionTxt.Location = new Point(99, 264);
+            otherOptionTxt.Name = "otherOptionTxt";
+            otherOptionTxt.Size = new Size(278, 28);
+            otherOptionTxt.TabIndex = 29;
+            otherOptionTxt.Visible = false;
+            // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Phone Number", "Email", "School Name", "Address" });
+            comboBox1.Items.AddRange(new object[] { "Phone Number", "Email", "School Name", "Address", "Subjects" });
             comboBox1.Location = new Point(99, 123);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(278, 33);
             comboBox1.TabIndex = 27;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Times New Roman", 12F);
-            label12.Location = new Point(281, 117);
+            label12.Location = new Point(283, 47);
             label12.Name = "label12";
             label12.Size = new Size(0, 27);
             label12.TabIndex = 26;
@@ -170,7 +237,7 @@
             // 
             CurAddy.AutoSize = true;
             CurAddy.Font = new Font("Times New Roman", 12F);
-            CurAddy.Location = new Point(271, 524);
+            CurAddy.Location = new Point(273, 415);
             CurAddy.Name = "CurAddy";
             CurAddy.Size = new Size(252, 27);
             CurAddy.TabIndex = 14;
@@ -180,7 +247,7 @@
             // 
             CurSchool.AutoSize = true;
             CurSchool.Font = new Font("Times New Roman", 12F);
-            CurSchool.Location = new Point(271, 378);
+            CurSchool.Location = new Point(273, 281);
             CurSchool.Name = "CurSchool";
             CurSchool.Size = new Size(252, 27);
             CurSchool.TabIndex = 13;
@@ -190,7 +257,7 @@
             // 
             CurEmail.AutoSize = true;
             CurEmail.Font = new Font("Times New Roman", 12F);
-            CurEmail.Location = new Point(271, 250);
+            CurEmail.Location = new Point(273, 156);
             CurEmail.Name = "CurEmail";
             CurEmail.Size = new Size(252, 27);
             CurEmail.TabIndex = 12;
@@ -200,7 +267,7 @@
             // 
             CurPhone.AutoSize = true;
             CurPhone.Font = new Font("Times New Roman", 12F);
-            CurPhone.Location = new Point(271, 121);
+            CurPhone.Location = new Point(273, 37);
             CurPhone.Name = "CurPhone";
             CurPhone.Size = new Size(252, 27);
             CurPhone.TabIndex = 11;
@@ -222,7 +289,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
             label5.ForeColor = Color.Olive;
-            label5.Location = new Point(19, 506);
+            label5.Location = new Point(21, 416);
             label5.Name = "label5";
             label5.Size = new Size(184, 26);
             label5.TabIndex = 5;
@@ -233,7 +300,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
             label4.ForeColor = Color.Olive;
-            label4.Location = new Point(19, 369);
+            label4.Location = new Point(21, 281);
             label4.Name = "label4";
             label4.Size = new Size(235, 26);
             label4.TabIndex = 4;
@@ -244,7 +311,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
             label3.ForeColor = Color.Olive;
-            label3.Location = new Point(19, 241);
+            label3.Location = new Point(21, 157);
             label3.Name = "label3";
             label3.Size = new Size(163, 26);
             label3.TabIndex = 3;
@@ -255,24 +322,22 @@
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
             label2.ForeColor = Color.Olive;
-            label2.Location = new Point(19, 107);
+            label2.Location = new Point(21, 37);
             label2.Name = "label2";
             label2.Size = new Size(213, 26);
             label2.TabIndex = 2;
             label2.Text = "Current Phone No. ";
-            label2.Click += label2_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
             label1.ForeColor = Color.Olive;
-            label1.Location = new Point(36, 241);
+            label1.Location = new Point(38, 171);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.Size = new Size(0, 26);
             label1.TabIndex = 1;
-            label1.Click += label1_Click_1;
             // 
             // btnSaveUS
             // 
@@ -285,26 +350,25 @@
             btnSaveUS.TabIndex = 16;
             btnSaveUS.Text = "Save";
             btnSaveUS.UseVisualStyleBackColor = false;
-            btnSaveUS.Click += btnSave_Click;
+            btnSaveUS.Click += btnSaveUS_Click;
             // 
-            // pictureBox1
+            // pictureBox2
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(406, 22);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(276, 230);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 15;
-            pictureBox1.TabStop = false;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(313, 21);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(404, 355);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 15;
+            pictureBox2.TabStop = false;
             // 
-            // txtStudentID
+            // txtTeacherID
             // 
-            txtStudentID.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtStudentID.Location = new Point(615, 437);
-            txtStudentID.Name = "txtStudentID";
-            txtStudentID.Size = new Size(214, 48);
-            txtStudentID.TabIndex = 14;
-            txtStudentID.TextChanged += txtFirstName_TextChanged;
+            txtTeacherID.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtTeacherID.Location = new Point(615, 437);
+            txtTeacherID.Name = "txtTeacherID";
+            txtTeacherID.Size = new Size(214, 48);
+            txtTeacherID.TabIndex = 14;
             // 
             // enterStudetID
             // 
@@ -314,49 +378,31 @@
             enterStudetID.Location = new Point(178, 444);
             enterStudetID.Margin = new Padding(5, 0, 5, 0);
             enterStudetID.Name = "enterStudetID";
-            enterStudetID.Size = new Size(381, 41);
+            enterStudetID.Size = new Size(388, 41);
             enterStudetID.TabIndex = 1;
-            enterStudetID.Text = "ENTER STUDENT ID:";
-            enterStudetID.Click += label1_Click;
+            enterStudetID.Text = "ENTER TEACHER ID:";
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(32, 12);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(106, 95);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 30;
-            pictureBox2.TabStop = false;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(104, 248);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(273, 31);
-            textBox1.TabIndex = 29;
-            // 
-            // updateStudent
+            // UpdateTeacher
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(1130, 950);
-            Controls.Add(pictureBox2);
-            Controls.Add(label11);
             Controls.Add(panel1);
+            Controls.Add(pictureBox1);
+            Controls.Add(label11);
             MaximumSize = new Size(1152, 1006);
-            Name = "updateStudent";
+            Name = "UpdateTeacher";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "updateStudent";
-            Load += updateStudent_Load;
+            Text = "UpdateTeacher";
+            Load += UpdateTeacher_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            USPanel2.ResumeLayout(false);
-            USPanel2.PerformLayout();
+            UTPanel2.ResumeLayout(false);
+            UTPanel2.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -365,28 +411,32 @@
         #endregion
 
         private Label label11;
-        private Panel panel1;
-        private Label enterStudetID;
-        private TextBox txtStudentID;
         private PictureBox pictureBox1;
+        private Panel panel1;
         private Button btnSaveUS;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label10;
-        private Label CurPhone;
-        private Label CurEmail;
-        private Label CurSchool;
-        private Label CurAddy;
-        private Button updateBtn;
-        private Label label12;
-        private ComboBox comboBox1;
-        private Label label13;
-        private Panel USPanel2;
-        private Panel panel2;
         private PictureBox pictureBox2;
-        private TextBox textBox1;
+        private TextBox txtTeacherID;
+        private Label enterStudetID;
+        private Panel UTPanel2;
+        private Label currSubjects;
+        private Label label7;
+        private Panel panel2;
+        private Label label13;
+        private Button updateBtn;
+        private TextBox otherOptionTxt;
+        private ComboBox comboBox1;
+        private Label label12;
+        private Label CurAddy;
+        private Label CurSchool;
+        private Label CurEmail;
+        private Label CurPhone;
+        private Label label10;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private CheckedListBox tsubjectList;
+        private Label alert4;
     }
 }

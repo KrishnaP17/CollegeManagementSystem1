@@ -81,6 +81,14 @@ namespace CollegeManagementSystem1
             String duration = comboBoxDuration.Text;
             String address = richTxtAddress.Text;
 
+            List<string> selectedSubjects = new List<string>();
+            foreach(var item in subjectList.CheckedItems)
+            {
+                selectedSubjects.Add(item.ToString());
+
+            }
+            String subjects = String.Join(", ", selectedSubjects);
+
 
             //create database connection
             SqlConnection con = new SqlConnection();
@@ -89,14 +97,29 @@ namespace CollegeManagementSystem1
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
-            cmd.CommandText = "insert into NewAdmission (fName, lName, mobile, email, schoolName, gender, dob, duration, addres) values ('" + fName + "', '" + lName + "', " + mobile + ", '" + email + "', '" + schoolName + "', '" + gender + "', '" + dob + "', '" + duration + "', '" + address + "')";
+            cmd.CommandText = "insert into NewAdmission (fName, lName, mobile, email, schoolName, gender, dob, duration, addres, subjects) values ('" + fName + "', '" + lName + "', " + mobile + ", '" + email + "', '" + schoolName + "', '" + gender + "', '" + dob + "', '" + duration + "', '" + address + "', '"+ subjects+"')";
 
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             adapter.Fill(ds);
             con.Close();
 
-            MessageBox.Show("Data Saved Successfully. Remember the Studet ID", "Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Data Saved Successfully. Remember the Student ID", "Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtPhoneNo.Clear();
+            txtEmail.Clear();
+            txtSchoolName.Clear();
+            btnFemale.Checked = false;
+            btnMale.Checked = false;
+            btnOther.Checked = false;
+            comboBoxDuration.ResetText();
+            richTxtAddress.Clear();
+            foreach (int i in subjectList.CheckedIndices)
+            {
+                subjectList.SetItemChecked(i, false);
+            }
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -111,6 +134,11 @@ namespace CollegeManagementSystem1
             btnOther.Checked = false;
             comboBoxDuration.ResetText();
             richTxtAddress.Clear();
+            foreach(int i in subjectList.CheckedIndices)
+            {
+                subjectList.SetItemChecked(i, false);
+            }
+
         }
 
         private void New_Admissions_Load(object sender, EventArgs e)

@@ -53,7 +53,7 @@ namespace CollegeManagementSystem1
             String username = textBox1.Text;
             String password = textBox2.Text;
 
-            if (username == "krishnaCMS" && password == "krishnaCMS")
+            if (username == "." && password == ".")
             {
                 menuStrip1.Visible = true;
                 loginPanel.Visible = false;
@@ -74,6 +74,63 @@ namespace CollegeManagementSystem1
         {
             updateStudent us = new updateStudent();
             us.Show();
+        }
+
+        private void updateFeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fees fs = new Fees();
+            fs.Show();
+        }
+
+        private void addTeacherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewTeacher nt = new NewTeacher();
+            nt.Show();
+        }
+
+        private void aboutUsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //school:   Students that go to that school     Subject they are taking     Teacher that go to that school AND teach the subject they chose
+            SchoolData sd = new SchoolData();
+            sd.Show();
+        }
+
+        private void searchStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchStudent searchStudent = new SearchStudent();
+            searchStudent.Show();
+        }
+
+        private void updateTeacherInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateTeacher ut = new UpdateTeacher();
+            ut.Show();
+        }
+
+        private void searchTeacherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchTeacher st = new SearchTeacher();
+            st.Show();
+        }
+
+        private void removeStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveStudent rs = new RemoveStudent();
+            rs.Show();
+        }
+
+        private void removeTeacherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveTeacher rt = new RemoveTeacher();
+            rt.Show();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                Application.Exit();
+            }
         }
     }
 }
